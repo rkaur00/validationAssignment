@@ -1,0 +1,12 @@
+
+{
+    "version": 2,
+    "name": "validationAssignment",
+ 
+    "builds": [{ "src": "methods/*/index.js", "use": "@now/node" }],
+    "routes": [
+      { "src": "/methods/yup", "methods": ["YUP"], "dest": "/methods/yup/index.js" },
+      { "src": "/", "status": 404},
+      { "src": "/methods", "status": 404}
+    ]
+  }
