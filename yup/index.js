@@ -16,16 +16,15 @@ const schema = yup.object().shape({
 
 module.exports = async (req, res) => {
     const data = await json(req)
-    schema.isValid(data)
+
+    schema.validate(data)
        .then(function(valid){
-         if (valid){
-             send(res, 200, data)}
-             else{
-                 send(res, 400, "The data does not match with the input fields")
-             }
+       
+             send(res, 200, data)
+            
           
-       }).catch(function(){
-        send(res, 400, data)
+       }).catch(function(err){
+        send(res, 400, err.errors)
     })
 }
 
